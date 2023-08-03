@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Aproveite na TV",
+    "subtitle": "Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, aparelhos de Blu-ray e outros dispositivos.",
+    "image": "/images/misc/home/tv.png",
+    "alt": "",
+    "direction": "row"
+  },
+  {
+    "id": 2,
+    "title": "Assista onde quiser",
+    "subtitle": "Assista a quantos filmes e séries quiser no celular, tablet, laptop e TV.",
+    "image": "/images/misc/home/device-pile.png",
+    "alt": "",
+    "direction": "row-reverse"
+  },
+  {
+    "id": 3,
+    "title": "Crie perfis para crianças",
+    "subtitle": "Deixe as crianças se aventurarem com seus personagens favoritos em um espaço feito só para elas, sem pagar a mais por isso.",
+    "image": "/images/misc/home/kids.png",
+    "alt": "",
+    "direction": "row"
+  },
+  {
+    "id": 4,
+    "title": "Baixe séries para assistir offline",
+    "subtitle": "Disponíveis somente em planos sem anúncios.",
+    "image": "/images/misc/home/mobile.jpg",
+    "alt": "",
+    "direction": "row-reverse"
+  }
+]
