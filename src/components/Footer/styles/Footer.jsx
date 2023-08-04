@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.footer`
+export const Container = styled.footer`
   background: black;
   padding: 3.75rem 2rem;
 `;
 
-export const Container = styled.div`
+export const Inner = styled.div`
   display: flex;
   color: rgba(255, 255, 255, 0.7);
   flex-direction: column;

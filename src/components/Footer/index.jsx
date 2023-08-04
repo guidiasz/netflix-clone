@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container, Row, Column, Link, Title, Text, Wrapper } from './styles/Footer';
+import { Container, Inner, Row, Column, Link, Title, Text } from './styles/Footer';
 
 const Footer = ({ children, ...props }) => {
   return (
-    <Wrapper>
-      <Container {...props}>{children}</Container>
-    </Wrapper>
+    <Container>
+      <Inner {...props}>{children}</Inner>
+    </Container>
   );
 };
 
