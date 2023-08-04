@@ -28,6 +28,5 @@ module.exports = {
     'no-unsafe-finally': 'off',
     'no-unused-vars': 'off',
     'react/jsx-key': 'off',
-    'react/display-name': [enabled, { ignoreTranspilerName: true, checkContextObjects: false }],
   },
 };
