@@ -9,6 +9,7 @@ export const Title = styled.h3`
   font-size: 1.25rem;
   text-align: center;
   line-height: 1.875rem;
+  color: #fff;
   @media (max-width: 36rem) {
     text-align: left;
   }
