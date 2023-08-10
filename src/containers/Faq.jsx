@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accordion, OptForm } from '../components';
 import faqData from '../fixtures/faq.json';
+import OptFormContainer from './OptForm';
 
 const FaqContainer = () => {
   return (
@@ -21,6 +22,7 @@ const FaqContainer = () => {
             </Accordion.Item>
           ))}
         </Accordion.Frame>
+        <OptFormContainer />
       </Accordion>
     </>
   );
