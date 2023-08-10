@@ -1,6 +1,8 @@
 module.exports = {
   env: {
     browser: true,
+    es6: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
@@ -27,6 +29,5 @@ module.exports = {
     'react/prop-types': 'off',
     'no-unsafe-finally': 'off',
     'no-unused-vars': 'off',
-    'react/jsx-key': 'off',
   },
 };
