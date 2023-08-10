@@ -21,6 +21,9 @@ export const Frame = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  & + * {
+    margin-top: 2.875rem;
+  }
 `;
 
 export const Item = styled.div`

@@ -3,12 +3,16 @@ import DefaultForm from '../../Form';
 
 export const Form = styled(DefaultForm)`
   max-width: 984px;
-  margin: 2.875rem auto auto auto;
+  margin-left: auto;
+  margin-right: auto;
 `;
 export const Title = styled.h3`
   font-size: 1.25rem;
   text-align: center;
   line-height: 1.875rem;
+  @media (max-width: 60rem) {
+    font-size: 1.125rem;
+  }
   @media (max-width: 36rem) {
     text-align: left;
   }
