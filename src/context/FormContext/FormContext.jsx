@@ -9,7 +9,6 @@ export const FormProvider = ({ children, onSubmit }) => {
     const { validate } = state.fields[name];
     const res = validate(value);
     res && dispatch({ type: 'INPUT_INVALID', name, payload: res });
-    console.log(res, !res);
     return !res;
   }
 
