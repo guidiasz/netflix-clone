@@ -26,7 +26,7 @@ const HeaderLogo = ({ to, ...props }) => {
 Header.Logo = HeaderLogo;
 
 const HeaderButtonLink = ({ to, ...props }) => {
-  return <ButtonLink {...props} />;
+  return <ButtonLink to={to} {...props} />;
 };
 Header.ButtonLink = HeaderButtonLink;
 
