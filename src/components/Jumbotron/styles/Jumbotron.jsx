@@ -49,6 +49,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.h2`
   font-size: 1.5rem;
   margin-top: 1.25rem;
+  line-height: 1.5;
   @media (max-width: 60rem) {
     font-size: 1.125rem;
   }

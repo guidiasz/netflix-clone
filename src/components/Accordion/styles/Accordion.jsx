@@ -50,7 +50,7 @@ export const Header = styled.button`
     background: #4e4e4e;
   }
   @media (max-width: 60rem) {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 `;
 
@@ -89,6 +89,7 @@ export const BodyContent = styled.div`
   overflow: hidden;
   padding: 0 1.5rem;
   @media (max-width: 60rem) {
-    font-size: 1.25rem;
+    font-size: 1rem;
+    padding: 0 1.25rem;
   }
 `;

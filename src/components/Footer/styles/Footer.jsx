@@ -26,7 +26,7 @@ export const Column = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-basis: 33.33%;
   min-width: 224px;
 `;
