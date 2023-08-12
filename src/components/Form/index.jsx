@@ -1,7 +1,21 @@
 import React from 'react';
 import { FormContext } from '../../context/FormContext/FormContext';
 
-import { Container, Floating, Label, Input, Helper, Submit, Spinner } from './styles/Form';
+import {
+  Container,
+  Floating,
+  Label,
+  Input,
+  Helper,
+  Submit,
+  Spinner,
+  Card,
+  Title,
+  Link,
+  Text,
+  Other,
+  TogglePassword,
+} from './styles/Form';
 
 const FieldContext = React.createContext();
 
@@ -14,14 +28,37 @@ const Form = ({ children, ...props }) => {
   );
 };
 
+const FormCard = ({ children, ...props }) => {
+  return <Card {...props}>{children}</Card>;
+};
+
+Form.Card = FormCard;
+
+const FormTitle = ({ children, ...props }) => {
+  return <Title {...props}>{children}</Title>;
+};
+
+Form.Title = FormTitle;
+
+const FormLink = ({ children, ...props }) => {
+  return <Link {...props}>{children}</Link>;
+};
+Form.Link = FormLink;
+
+const FormText = ({ children, ...props }) => {
+  return <Text {...props}>{children}</Text>;
+};
+Form.Text = FormText;
+
 const FormField = ({ name, validate, children, ...props }) => {
+  const [showPassword, setShowPassword] = React.useState(false);
   const { createField } = React.useContext(FormContext);
   React.useEffect(() => {
     createField(name, validate);
   }, [name, validate, createField]);
 
   return (
-    <FieldContext.Provider value={{ name, validate }}>
+    <FieldContext.Provider value={{ name, validate, showPassword, setShowPassword }}>
       <Floating {...props}>{children}</Floating>
     </FieldContext.Provider>
   );
@@ -45,8 +82,8 @@ const FormLabel = ({ children, ...props }) => {
 };
 Form.Label = FormLabel;
 
-const FormInput = ({ ...props }) => {
-  const { name, validate } = React.useContext(FieldContext);
+const FormInput = ({ type = 'text', ...props }) => {
+  const { name, showPassword } = React.useContext(FieldContext);
   const { getFieldState, handleFieldChange, handleFieldBlur, handleFieldFocus } =
     React.useContext(FormContext);
 
@@ -56,6 +93,7 @@ const FormInput = ({ ...props }) => {
   return (
     <>
       <Input
+        type={type !== 'password' ? type : showPassword ? 'text' : type}
         $status={fieldState.status}
         name={name}
         value={fieldState.value}
@@ -69,18 +107,23 @@ const FormInput = ({ ...props }) => {
 };
 Form.Input = FormInput;
 
-const FormSubmit = ({ children, ...props }) => {
-  const { formStatus } = React.useContext(FormContext).state;
-  const isLoading = formStatus === 'loading';
+const FormTogglePassword = ({ show = 'Mostrar', hide = 'Ocultar', children, ...props }) => {
+  const { name, showPassword, setShowPassword } = React.useContext(FieldContext);
+  const { getFieldState } = React.useContext(FormContext);
+  const value = getFieldState(name)?.value;
+  function handleClick(e) {
+    e.preventDefault();
+    setShowPassword((prevVal) => !prevVal);
+  }
+  if (!value) return null;
   return (
-    <>
-      <Submit $isLoading={isLoading} aria-disabled={isLoading} {...props}>
-        {isLoading ? <FormSpinner /> : children}
-      </Submit>
-    </>
+    <TogglePassword onClick={handleClick} {...props} type="button">
+      {showPassword ? hide : show}
+      {children}
+    </TogglePassword>
   );
 };
-Form.Submit = FormSubmit;
+Form.TogglePassword = FormTogglePassword;
 
 const FormFieldHelper = ({ helperContent = () => {}, children, ...props }) => {
   const { name } = React.useContext(FieldContext);
@@ -130,7 +173,20 @@ const FormHelper = ({ helperContent = () => null, children, ...props }) => {
 };
 Form.Helper = FormHelper;
 
-const FormSpinner = ({ ...props }) => {
+const FormSubmit = ({ children, ...props }) => {
+  const { formStatus } = React.useContext(FormContext).state;
+  const isLoading = formStatus === 'loading';
+  return (
+    <>
+      <Submit $isLoading={isLoading} aria-disabled={isLoading} {...props}>
+        {isLoading ? <FormSpinner /> : children}
+      </Submit>
+    </>
+  );
+};
+Form.Submit = FormSubmit;
+
+const FormSpinner = () => {
   return (
     <Spinner title="loading">
       <div></div>
@@ -141,5 +197,9 @@ const FormSpinner = ({ ...props }) => {
   );
 };
 Form.Spinner = FormSpinner;
+const FormOther = ({ children, ...props }) => {
+  return <Other {...props}>{children}</Other>;
+};
+Form.Other = FormOther;
 
 export default Form;
